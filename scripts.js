@@ -14,3 +14,18 @@ function getComputerChoice() {
         return 'scissors'
     }
 }
+
+
+function getHumanChoice(userChoice) {
+    /*
+   input get user choice by prompt as parameter
+   return user choice
+   for now per top instructions assume user
+   enter correct input
+    */
+   return userChoice
+}
+
+let userPrompt = prompt("enter rock or paper or scissors")
+
+

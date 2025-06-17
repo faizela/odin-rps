@@ -1,8 +1,3 @@
-let humanScore = 0
-let computerScore = 0
-
-
-
 function getComputerChoice() {
     // plan how to get random choices uses math.random without arrays
     // no input goal return either rock or paper or scissors 
@@ -34,7 +29,13 @@ function getHumanChoice() {
 
 
 
-function playRound(humanChoice, computerChoice) {
+function playGame() {
+   
+let humanScore = 0
+let computerScore = 0
+
+
+  function playRound(humanChoice, computerChoice) {
 // use humanchoice and computerchoice as args
 // console.log winner with msg
 // increment the humscore and cpuscore based on winner
@@ -72,10 +73,28 @@ else if (computerChoice === 'scissors' && humanChoice === 'paper') {
     console.log('CPU wins - scissors beats paper')
      computerScore++
 }
+}
+
+for (let i = 0; i < 5; i++) {
+const humanSelection = getHumanChoice()
+const cpuSelection = getComputerChoice()
+// console.log(cpuSelection, humanScore, computerScore)
+   playRound(humanSelection, cpuSelection)
+}
+if (humanScore === computerScore) {
+    console.log('It\'s a Tie')
+} 
+else if (humanScore > computerScore) {
+    console.log('Human wins')
+}
+else {
+    console.log('CPU wins')
+}
 
 
 }
 
+playGame()
 
 
 
@@ -85,7 +104,4 @@ else if (computerChoice === 'scissors' && humanChoice === 'paper') {
 
 
 
-const humanSelection = getHumanChoice()
-const cpuSelection = getComputerChoice()
-console.log(cpuSelection)
-console.log(playRound(humanSelection, cpuSelection))
+

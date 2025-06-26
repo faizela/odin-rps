@@ -1,5 +1,6 @@
 const rockBtn = document.querySelector('.rock')
-console.log(rockBtn)
+
+
 
 
 

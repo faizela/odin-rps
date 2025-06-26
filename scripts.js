@@ -1,3 +1,8 @@
+const rockBtn = document.querySelector('.rock')
+console.log(rockBtn)
+
+
+
 function getComputerChoice() {
     // plan how to get random choices uses math.random without arrays
     // no input goal return either rock or paper or scissors 
@@ -76,15 +81,7 @@ else if (computerChoice === 'scissors' && humanChoice === 'paper') {
 }
 
 
-if (humanScore === computerScore) {
-    console.log('It\'s a Tie')
-} 
-else if (humanScore > computerScore) {
-    console.log('Human wins')
-}
-else {
-    console.log('CPU wins')
-}
+
 
 
 }

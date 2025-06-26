@@ -75,12 +75,7 @@ else if (computerChoice === 'scissors' && humanChoice === 'paper') {
 }
 }
 
-for (let i = 0; i < 5; i++) {
-const humanSelection = getHumanChoice()
-const cpuSelection = getComputerChoice()
-// console.log(cpuSelection, humanScore, computerScore)
-   playRound(humanSelection, cpuSelection)
-}
+
 if (humanScore === computerScore) {
     console.log('It\'s a Tie')
 } 

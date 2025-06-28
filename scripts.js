@@ -1,5 +1,9 @@
 const rockBtn = document.querySelector('.rock')
-
+const paperBtn = document.querySelector('.paper')
+const scissorsBtn = document.querySelector('.scissors')
+const resultsDiv  =  document.querySelector('.results')
+const scoresDiv = document.querySelector('.scores')
+const winnerDiv = document.querySelector('.winner')
 
 
 
@@ -41,46 +45,104 @@ let humanScore = 0
 let computerScore = 0
 
 
-  function playRound(humanChoice, computerChoice) {
+  function playRound(humanChoice, computerChoice=getComputerChoice()) {
 // use humanchoice and computerchoice as args
 // console.log winner with msg
 // increment the humscore and cpuscore based on winner
 if (humanChoice === 'rock' && computerChoice === 'rock'
     || humanChoice === 'paper'  && computerChoice === 'paper'
     || humanChoice === 'scissors' && computerChoice === 'scissors') {
-     console.log('It\'s a tie')
+        showResult('It\'s a tie')
     }
 
 else if (humanChoice === 'rock' && computerChoice === 'scissors') {
-    console.log('Human wins - Rock beats scissors')
+          showResult('Human wins - Rock beats scissors')
     humanScore++
 }
 
 else if (humanChoice === 'paper' && computerChoice === 'rock') {
-    console.log('Human wins - paper beats rock')
+        showResult('Human wins - paper beats rock')
     humanScore++
 }
 else if (humanChoice === 'scissors' && computerChoice === 'paper') {
-    console.log('Human wins - scissors beats paper')
+            showResult('Human wins - scissors beats paper')
     humanScore++
 }
 
 else if (computerChoice === 'rock' && humanChoice === 'scissors') {
-    console.log('CPU wins - Rock beats scissors')
+            showResult('CPU wins - Rock beats scissors')
     computerScore++
 }
 
 else if (computerChoice === 'paper' && humanChoice === 'rock') {
-    console.log('CPU wins - paper beats rock')
+         showResult('CPU wins - paper beats rock')
     computerScore++
 }  
 
 else if (computerChoice === 'scissors' && humanChoice === 'paper') {
-    console.log('CPU wins - scissors beats paper')
+  showResult('CPU wins - scissors beats paper')
      computerScore++
 }
+
+function showScores() {
+    // show cpu and hum score and display in scores div
+    scoresDiv.style.border = "30px solid beige"
+    scoresDiv.textContent = `human score is ${humanScore} and CPU score is ${computerScore}`
 }
 
+showScores()
+
+function showWinner() {
+    // plan
+    //  check if humscore or cpuscore = 5
+    // if hum or cpu === 5 
+    // display winner 
+    // reset hum and cpu score to 0 and display win msg to empty str
+    if (humanScore === 5) {
+    winnerDiv.textContent = "Human player wins"
+    humanScore = 0;   computerScore = 0; 
+
+    }
+
+    else if (computerScore === 5) {
+        winnerDiv.textContent = "CPU wins"
+        humanScore = 0;  computerScore = 0;
+
+      
+        
+    }
+
+   
+    
+
+
+
+}
+
+showWinner()
+
+}
+
+
+
+function handleClick(e) {
+    playRound(e.target.className)
+}
+
+function showResult(msg){
+  const p = document.createElement('p')
+    p.textContent = msg
+    resultsDiv.appendChild(p)
+} 
+
+
+
+
+
+
+rockBtn.addEventListener('click', handleClick)
+paperBtn.addEventListener('click', handleClick)
+scissorsBtn.addEventListener('click', handleClick)
 
 
 
